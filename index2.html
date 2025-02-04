@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝕿𝖆𝖑𝖐 & 𝕻𝖑𝖆𝖞 𝕬𝖗𝖊𝖓𝖆</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: white;
+            color: black;
+            font-size: 18px;
+        }
+
+        /* Темная тема */
+        body.dark {
+            background-color: black;
+            color: white;
+        }
+
+        /* Шапка */
+        header {
+            padding: 50px 20px;
+        }
+
+        /* Стили для заголовка */
+        .title {
+            font-size: 50px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Цвета заголовка при разных темах */
+        .light .title {
+            color: black;
+        }
+
+        .dark .title {
+            color: white;
+        }
+
+        /* Кнопка переключения темы */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            padding: 12px 18px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            z-index: 1000;
+        }
+
+        .light .theme-toggle {
+            background-color: black;
+            color: white;
+        }
+
+        .dark .theme-toggle {
+            background-color: white;
+            color: black;
+        }
+
+        /* Кнопки соцсетей */
+        .social-buttons {
+            margin-top: 30px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .social-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+            margin: 15px;
+        }
+
+        /* YouTube */
+        .youtube-button {
+            background: red;
+            color: white;
+        }
+        .youtube-button:hover {
+            background: white;
+            color: red;
+        }
+
+        /* Discord */
+        .discord-button {
+            background: #5865F2;
+            color: white;
+        }
+        .discord-button:hover {
+            background: white;
+            color: #5865F2;
+        }
+
+        /* Telegram */
+        .telegram-button {
+            background: #0088CC;
+            color: white;
+        }
+        .telegram-button:hover {
+            background: white;
+            color: #0088CC;
+        }
+
+        /* Описание блоков */
+        .info-section {
+            max-width: 70%;
+            margin: 50px auto;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Цвета описаний */
+        .youtube-info { background-color: red; }
+        .discord-info { background-color: #5865F2; }
+        .telegram-info { background-color: #0088CC; }
+
+        /* Подвал */
+        footer {
+            background-color: black;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body class="light">
+    <div class="theme-toggle" onclick="toggleTheme()">🌙 Тёмная тема</div>
+    <header>
+        <h1 class="title">𝕿𝖆𝖑𝖐 & 𝕻𝖑𝖆𝖞 𝕬𝖗𝖊𝖓𝖆</h1>
+    </header>
+
+    <main>
+        <p>Лучший контент ждёт тебя! Подпишись на наши соцсети:</p>
+
+        <div class="social-buttons">
+            <a href="https://www.youtube.com/@TalkPlayArena" target="_blank" class="social-button youtube-button">
+                YouTube
+            </a>
+            <a href="https://discord.gg/7ns4Env9fX" target="_blank" class="social-button discord-button">
+                Discord
+            </a>
+            <a href="https://t.me/TPAofficial" target="_blank" class="social-button telegram-button">
+                Telegram
+            </a>
+        </div>
+
+        <!-- Описание платформ -->
+        <div class="info-section youtube-info" id="youtube-info">
+            <h2>YouTube</h2>
+            <p>На нашем YouTube-канале тебя ждёт крутой контент, интересные видео и много веселья! Подписывайся, чтобы не пропустить новые выпуски.</p>
+        </div>
+
+        <div class="info-section discord-info" id="discord-info">
+            <h2>Discord</h2>
+            <p>𝕿𝕻𝕬 — это сервер, на котором ты можешь найти новых друзей, пообщаться, обсудить любимые игры и даже участвовать в мероприятиях и розыгрышах! Мы тебя ждём!</p>
+        </div>
+
+        <div class="info-section telegram-info" id="telegram-info">
+            <h2>Telegram</h2>
+            <p>В нашем Telegram-канале ты найдёшь эксклюзивные видео, новости и свежие обновления. Подпишись, чтобы всегда быть в курсе!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 TalkPlayArena. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+
+            if (body.classList.contains('dark')) {
+                themeToggle.innerHTML = "☀️ Светлая тема";
+            } else {
+                themeToggle.innerHTML = "🌙 Тёмная тема";
+            }
+        }
+
+        function revealElements() {
+            const hiddenElements = document.querySelectorAll('.title, .social-buttons, .info-section');
+            hiddenElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50 && rect.bottom > 50) {
+                    el.style.opacity = 1; // Элементы становятся видимыми
+                } else {
+                    el.style.opacity = 0; // Элементы скрываются
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            revealElements(); // Показываем элементы при загрузке страницы
+        });
+
+        document.addEventListener('scroll', revealElements);
+    </script>
+
+</body>
+</html>
